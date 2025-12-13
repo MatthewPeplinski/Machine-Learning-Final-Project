@@ -1,7 +1,7 @@
-# FinalMachineLearning
+# Final Machine Learning Project: Regression Comparisons
 
-This project utilizes Linear regression, SVR, Random forest, ARIMA, SARIMA and Holt Winters exponential smoothing to forecast hourly weather data.
-We take in one month of hourly data as train data, run each model and test on a seperate validation set, then compare root mean squared error.
+This project utilizes Linear Regression, Support Vector Regression, Random Forest Regression, ARIMA (Auto Regressive Integrated Moving Average), SARIMA (Seasonal ARIMA) and Holt Winters Exponential Smoothing to forecast hourly weather data out one weeks time.
+We display a map of Wisconsin, allowing the user to select anywhere in the state, then take in one month of hourly data as train data as a weighted average from triangulating the selected locations information based on the three closest weather stations. We then run each model and test on a seperate validation set, and finally compare results using root mean squared error.
 
 Below is the link to a google slidshow going through what this project is. 
 https://docs.google.com/presentation/d/1K0o1jeUx8h5qf2DxzTMDn3KgiUY_LKQwvq-sRd3KZPI/edit?slide=id.p#slide=id.p 
