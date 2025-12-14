@@ -133,20 +133,50 @@ checkLinear.pack(padx=10, pady=10, anchor="w")
 
 def plotGraph():
     graph.clear()
-    graph.plot(customLocTestData['DATE'], customLocTestData[Feature], c="black")
-    
-    if (check_state_Linear.get() == 1):
-        graph.plot(customLocTestData['DATE'], Linear_Forecast)
-    if (check_state_SVR.get() == 1):
-        graph.plot(customLocTestData['DATE'], SVR_Forecast)
-    if (check_state_RF.get() == 1):
-        graph.plot(customLocTestData['DATE'], RF_Forecast)
-    if (check_state_ARIMA.get() == 1):
-       graph.plot(customLocTestData['DATE'], arima_Forecast)
-    if (check_state_SARIMA.get() == 1):
-        graph.plot(customLocTestData['DATE'], sarima_Forecast)
-    if (check_state_HWES.get() == 1):
-        graph.plot(customLocTestData['DATE'], HWES_Forecast)
+    prediction_lines = []
+    labels = []
+
+    line_actual, = graph.plot(customLocTestData['DATE'], customLocTestData[Feature],c="black", label="Actual")
+    prediction_lines.append(line_actual)
+    labels.append("Actual")
+
+    if check_state_Linear.get() == 1:
+        line_lin, = graph.plot(customLocTestData['DATE'], Linear_Forecast,label="Linear Regression")
+        prediction_lines.append(line_lin)
+        labels.append("Linear Regression")
+
+    if check_state_SVR.get() == 1:
+        line_svr, = graph.plot(customLocTestData['DATE'], SVR_Forecast, label="Support Vector Regression")
+        prediction_lines.append(line_svr)
+        labels.append("Support Vector Regression")
+
+    if check_state_RF.get() == 1:
+        line_rf, = graph.plot(customLocTestData['DATE'], RF_Forecast, label="Random Forest")
+        prediction_lines.append(line_rf)
+        labels.append("Random Forest")
+
+    if check_state_ARIMA.get() == 1:
+        line_arima, = graph.plot(customLocTestData['DATE'], arima_Forecast,label="ARIMA")
+        prediction_lines.append(line_arima)
+        labels.append("ARIMA")
+
+    if check_state_SARIMA.get() == 1:
+        line_sarima, = graph.plot(customLocTestData['DATE'], sarima_Forecast,label="Seasonal ARIMA")
+        prediction_lines.append(line_sarima)
+        labels.append("Seasonal ARIMA")
+
+    if check_state_HWES.get() == 1:
+        line_hw, = graph.plot(customLocTestData['DATE'], HWES_Forecast,label="Holt Winters")
+        prediction_lines.append(line_hw)
+        labels.append("Holt Winters")
+
+    if len(prediction_lines) > 0:
+        graph.legend(handles=prediction_lines, labels=labels, loc="upper left", fontsize=9)
+
+    graph.set_xlabel("Date")
+    graph.set_ylabel(Feature)
+    graph.set_title(f"Forecast Comparison for {Feature}")
+
     canvas.draw()
 
 #creates a button that will show the graphs of the selected models when pressed
@@ -154,3 +184,4 @@ ShowGraphButton = tk.Button(frame, text="Show Graphs", command=plotGraph)
 ShowGraphButton.pack(pady=20, side="top")
 
 root.mainloop()
+
