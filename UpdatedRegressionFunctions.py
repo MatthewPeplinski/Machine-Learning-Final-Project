@@ -55,15 +55,22 @@ def standardRegressions(feature, trainFile, testFile):
         feature_cols = df.columns.difference(['target_future'])  # Keep all columns except the shifted one
         X = df[feature_cols]
         y = df['target_future']
-        X = (X - np.average(X, axis=0)) / np.std(X, axis=0)
         X.drop(X.columns[-1], axis=1, inplace = True)
         # Split data (80% train, 20% test)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
+        x_mean = X_train.mean()
+        x_std = X_train.std()
+        X_train = (X_train - x_mean) / x_std
+        X_test = (X_test - x_mean) / x_std
+
+        y_mean = y_train.mean()
+        y_std = y_train.std()
+        y_train_scaled = (y_train - y_mean) / y_std
 
         #Train using our three different models
-        randForest.fit(X_train, y_train)
-        linear.fit(X_train, y_train)
-        modelSVR.fit(X_train, y_train)
+        randForest.fit(X_train, y_train_scaled)
+        linear.fit(X_train, y_train_scaled)
+        modelSVR.fit(X_train, y_train_scaled)
 
         #Get values we need
         future_input = X_test.tail(numHours) # The tail gathers the last x hours worth of data
@@ -75,9 +82,10 @@ def standardRegressions(feature, trainFile, testFile):
 
         # Get the starting index of the test split relative to the full dataset
         """note: realData is not in fact the real data, this just shifts the 'realData' down to match predictions"""
-        start_index = len(X) - len(X_test) - 5
-        realData = df[target].iloc[start_index: start_index + numHours].reset_index(drop=True)
+        # start_index = len(X) - len(X_test)
+        # realData = df[target].iloc[start_index: start_index + numHours].reset_index(drop=True)
 
+        realData = y_test.tail(numHours).reset_index(drop=True)
 
         linearData = pd.DataFrame(linearPredict, columns=[target])
         SVRData = pd.DataFrame(SVRPredict, columns=[target])
