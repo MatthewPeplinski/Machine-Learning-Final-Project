@@ -50,7 +50,7 @@ Random Forest RMSE: 3.051
 ARIMA RMSE: 0.463
 
 ## Seasonal ARIMA
-![SARIMA](https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Seasonal%ARIMA.png)
+![SARIMA](https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Seasonal%20ARIMA.png)
 SARIMA RMSE: 0.382
 
 ## Holt Winters Exponentail Smoothing
