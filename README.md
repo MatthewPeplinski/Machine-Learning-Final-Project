@@ -42,7 +42,7 @@ Linear RMSE: 2.398
 SVR RMSE: 3.130
 
 ## Random Forest Regression
-![RF Regression](https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Random%forest%regression.png)
+![RF Regression](https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Random%20forest%20regression.png)
 Random Forest RMSE: 3.051
 
 ## ARIMA
