@@ -21,14 +21,13 @@ For a more in depth look at the consideration which went into time series decomp
 - Identifying trend and seaonality
 - Storing and removing those trends and seasonality
 
-![decomposition](https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/time_series_decomp.png)
 <img alt="decomposition"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/time_series_decomp.png"
      width = "60%">
 
 - Determining significant number of lags (previous observations) using PAC
 <img alt="PAC"
-     src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/ARIMA%PAC.png"
+     src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/AIRIMA%20PAC.png"
      width = "60%">
 ## Direct comparison of Results
 Below are some combined graphs to compare resilts of the regression models (each model will have its own section later)
@@ -36,43 +35,51 @@ Below are some combined graphs to compare resilts of the regression models (each
 <img alt="Multi Comparison"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Multi_comparison.png"
      width = "60%">
+     
 <img alt="Second Multi Comparison"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Multi_comparison_2.png"
      width = "60%">
+     
 ## Linear Regression
 <img alt="Linear Regression"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/MultiLinear.png"
      width = "60%">
+     
 Linear RMSE: 2.398
 
 ## Support Vector Regression
 <img alt="SVR"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/SVR.png"
      width = "60%">
+     
 SVR RMSE: 3.130
 
 ## Random Forest Regression
 <img alt="RF Regression"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Random%20forest%20regression.png"
      width = "60%">
+     
 Random Forest RMSE: 3.051
 
 ## ARIMA
 <img alt="ARIMA"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/ARIMA.png"
      width = "60%">
+     
 ARIMA RMSE: 0.463
 
 ## Seasonal ARIMA
 <img alt="SARIMA"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/Seasonal%20ARIMA.png"
      width = "60%">
+     
 SARIMA RMSE: 0.382
 
 ## Holt Winters Exponentail Smoothing
 <img alt="Exponental Smoothing"
      src="https://github.com/MatthewPeplinski/Machine-Learning-Final-Project/blob/main/images/holt_winters.png"
      width = "60%">
+     
 Holt Winters RMSE: 0.737
 
 
